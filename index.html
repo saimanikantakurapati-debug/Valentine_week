@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌹 Happy Rose Day 🌹</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #4a2c2a;
+    }
+    h1 {
+      font-size: 3em;
+      color: #b3003b;
+    }
+    .rose {
+      font-size: 4em;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #b3003b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #80002a;
+    }
+    #message {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #4a2c2a;
+      animation: fadeIn 2s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌹🌹 Happy Rose Day 🌹🌹</h1>
+  
+  <!-- Animated Roses -->
+  <div>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+  </div>
+  
+  <!-- Reveal Button -->
+  <button onclick="showMessage()"> A Rose with a Promise of New Beginning </button>
+  
+  <!-- Hidden Message -->
+  <div id="message">
+    "Just like these roses, my feelings for you bloom with hope and joy.
+Every new beginning feels special, and I’m glad ours is starting with trust and smiles.
+I look forward to discovering more about you each day 🌹.
+With this rose, I simply want to say I’m grateful for the journey we’re about to share, and I wish it to be filled with happiness and harmony ❤️."
+  </div>
+  
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
