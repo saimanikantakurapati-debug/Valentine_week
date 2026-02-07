@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>One Honest Conversation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Patrick+Hand&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #fff6df, #e7efe8, #dfe8dc);
+  font-family: 'Fredoka', sans-serif;
+  color: #3a2e2e;
+  text-align: center;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* Heading */
+h1 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 3em;
+  margin-top: 30px;
+  color: #6b4a3d;
+  animation: dropIn 1.6s ease forwards;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub {
+  font-size: 1.15em;
+  color: #5a5550;
+  margin-bottom: 35px;
+  animation: fadeIn 2.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Couple */
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin: 45px 0;
+}
+
+.person {
+  font-size: 4.2em;
+  animation: float 3s ease-in-out infinite;
+}
+
+.person.right {
+  animation-delay: 1.3s;
+}
+
+.heart-between {
+  font-size: 2.4em;
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* Button – COOL FONT */
+button {
+  padding: 16px 44px;
+  font-size: 1.2em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #9bb8a0, #e6c98a);
+  color: #2f2a26;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+}
+
+/* Floating proposal text (NO BOX) */
+#proposal {
+  display: none;
+  max-width: 760px;
+  margin: 60px auto;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.65em;
+  line-height: 1.9;
+  color: #3f2f26;
+  padding: 10px 15px;
+  animation: appearSoft 2s ease forwards;
+  text-shadow:
+    0 2px 8px rgba(255,255,255,0.9),
+    0 0 18px rgba(255,220,160,0.8);
+  position: relative;
+}
+
+/* Soft glow */
+#proposal::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.7), transparent 70%);
+  z-index: -1;
+  filter: blur(25px);
+}
+
+@keyframes appearSoft {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating love & star balloons */
+.float {
+  position: fixed;
+  bottom: -30px;
+  font-size: 1.5em;
+  animation: floatUp 6s linear forwards;
+  opacity: 0.85;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.4em; }
+  .person { font-size: 3.2em; }
+  #proposal { font-size: 1.3em; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💍 Happy Propose Day 💍</h1>
+<div class="sub">some moments don’t need big words — just truth</div>
+
+<div class="couple">
+  <div class="person">👦</div>
+  <div class="heart-between">❤️</div>
+  <div class="person right">👧</div>
+</div>
+
+<button onclick="showProposal()">May I say something?</button>
+
+<div id="proposal">
+  I wanted to say this in a simple, honest way.<br><br>
+
+  I like how things are between us  
+  comfortable, honest, and effortlessly real.<br><br>
+
+  I’m not here with big promises or dramatic words,  
+  just a genuine feeling and a simple question.<br><br>
+
+  Would you like to see where this can go,  
+  together, one step at a time? 🤍
+</div>
+
+<script>
+  const items = ["❤️", "⭐"];
+  setInterval(() => {
+    const el = document.createElement("div");
+    el.className = "float";
+    el.innerHTML = items[Math.floor(Math.random() * items.length)];
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 6000);
+  }, 750);
+
+  function showProposal() {
+    document.getElementById("proposal").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
