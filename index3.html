@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🍫 Happy Chocolate Day 🍫</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Elegant + Modern Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,600&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3e2723, #5d4037, #4e342e);
+  font-family: 'Poppins', sans-serif;
+  color: #fff3e0;
+  text-align: center;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* Heading */
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.1em;
+  margin-top: 35px;
+  color: #ffd7a8;
+  animation: fadeDrop 1.6s ease forwards;
+}
+
+@keyframes fadeDrop {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtext */
+.sub {
+  font-size: 1.15em;
+  color: #ffe0b2;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Chocolate + Heart Row */
+.choco-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  margin: 50px 0;
+}
+
+.choco {
+  font-size: 3.6em;
+  animation: float 3.8s ease-in-out infinite;
+}
+
+.choco:nth-child(2) {
+  font-size: 4em;
+  animation: heartbeat 1.6s infinite;
+  filter: drop-shadow(0 0 18px rgba(255,255,255,0.6));
+}
+
+.choco:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* Button */
+button {
+  padding: 15px 42px;
+  font-size: 1.05em;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #d7a86e, #ffcc80);
+  color: #3e2723;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+}
+
+/* Message */
+#message {
+  display: none;
+  max-width: 760px;
+  margin: 65px auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65em;
+  line-height: 1.95;
+  color: #fff8e1;
+  text-shadow:
+    0 0 18px rgba(255,200,150,0.8),
+    0 0 35px rgba(255,160,100,0.6);
+  animation: riseSoft 2s ease forwards;
+}
+
+@keyframes riseSoft {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Falling elements (TOP → BOTTOM) */
+.fall {
+  position: fixed;
+  top: -40px;
+  font-size: 1.5em;
+  animation: fallDown linear forwards;
+  opacity: 0.85;
+  z-index: 5;
+}
+
+@keyframes fallDown {
+  to {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.4em; }
+  .choco { font-size: 3em; }
+  #message { font-size: 1.3em; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🍫 Happy Chocolate Day 🍫</h1>
+<div class="sub">because some sweetness is meant to be shared</div>
+
+<!-- 🍫 🤍 🍫 Better visual -->
+<div class="choco-row">
+  <div class="choco">🍫</div>
+  <div class="choco">🤍</div>
+  <div class="choco">🍫</div>
+</div>
+
+<button onclick="showMessage()">May I share something sweet?</button>
+
+<div id="message">
+  They say chocolates don’t solve everything <br>
+  but they do make moments warmer.<br><br>
+
+  Getting to know you has felt gentle and reassuring,<br>
+  like comfort wrapped in sweetness.<br><br>
+
+  So today, this is my small gesture <br>
+  a little sweetness, shared with honesty,<br>
+  hoping it brings a smile your way 🤍
+</div>
+
+<script>
+  /* 🍫🤍⭐ Falling romantic elements */
+  const items = ["🍫", "🤍", "⭐"];
+
+  setInterval(() => {
+    const el = document.createElement("div");
+    el.className = "fall";
+    el.innerHTML = items[Math.floor(Math.random() * items.length)];
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (6 + Math.random() * 4) + "s";
+    el.style.fontSize = (1.2 + Math.random() * 0.8) + "em";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 10000);
+  }, 700);
+
+  function showMessage() {
+    document.getElementById("message").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teddy Day 🧸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Cute, soft font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #f6f1eb, #e8f0f2);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #4b3f3f;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #6b4f4f;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.85;
+    }
+
+    .reveal-btn {
+      padding: 14px 34px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      background: #c48b8b;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .reveal-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      display: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Falling teddy, hearts, stars */
+    .fall {
+      position: absolute;
+      top: -50px;
+      font-size: 26px;
+      animation: fall linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    /* 📱 Mobile font consistency fix */
+    @media (max-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      .tagline {
+        font-size: 1.15rem;
+      }
+
+      .reveal-btn {
+        font-size: 1.1rem;
+        padding: 16px 36px;
+      }
+
+      .message {
+        font-size: 1.4rem;
+        line-height: 1.9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Teddy Day 🧸</h1>
+    <div class="tagline">
+      A small hug… in a soft, quiet way
+    </div>
+
+    <button class="reveal-btn" onclick="showMessage()">
+      Open this little heart ❤️
+    </button>
+
+    <div class="message" id="msg">
+      If this day had a feeling,<br>
+      it would be calm, warm, and comforting.<br><br>
+
+      Just like a teddy…<br>
+      something that stays quietly close,<br>
+      without asking for anything.<br><br>
+
+      I hope this small gesture<br>
+      brings a gentle smile today 🧸✨
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").style.display = "block";
+    }
+
+    const emojis = ["🧸", "❤️", "✨"];
+
+    for (let i = 0; i < 35; i++) {
+      const span = document.createElement("span");
+      span.className = "fall";
+      span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.animationDuration = (6 + Math.random() * 6) + "s";
+      span.style.fontSize = (20 + Math.random() * 20) + "px";
+      document.body.appendChild(span);
+    }
+  </script>
+
+</body>
+</html>
